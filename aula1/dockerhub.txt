@@ -1,0 +1,16 @@
+
+-- nome para define o nome de suca imagem pra subi no repositorio
+
+namespace/repositorio:tag
+Ex: abiliojgf/pykota:v1
+
+-- 1º autentica no docker hub
+
+docker login
+
+-- envia a imagem com definição de verção
+docker push namespace/repositorio:tag
+
+-- # definição final da imagem pra envia: 
+docker tag namespace/repositorio:tag namespace/repositorio:latest
+ex: docker tag abiliojgf/pykota:v1 abiliojgf/pykota:latest

@@ -13,6 +13,13 @@
 - DBeaver
 
 -----------------------------------------------------------------------------------------------
-
+<b> - palavra DEVOPS</b>
 DEV - de desenvolvemento
 OPS - de operação
+
+<b>Opções de Registry</b>
+- Docker Hub
+- Elastic Container Registry
+- Azure Container Registry
+- Google Container Registry
+- Harbor Container Registry
