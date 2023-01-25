@@ -5,7 +5,7 @@ k3d cluster create
 k3d cluster create --no-lb
 
 # cria um cluster com mais contropane e worknodes
-k3d cluster create nomedocluster --servers 3 --agents 3
+k3d cluster create nomedocluster --servers 2 --agents 2
 
 # lista
 k3d cluster list
@@ -13,3 +13,4 @@ k3d cluster list
 # delete
 k3d cluster delete
 
+# -----------------------------------------------------------------------
