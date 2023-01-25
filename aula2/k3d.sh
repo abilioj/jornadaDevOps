@@ -14,3 +14,5 @@ k3d cluster list
 k3d cluster delete
 
 # -----------------------------------------------------------------------
+# cria o cluster com a bind port
+k3d cluster create mycluster -p "80:30000@loadbalancer"

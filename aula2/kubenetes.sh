@@ -35,7 +35,7 @@ kubectl api-resources
     kubectl describe pod meupod
 
     # diponibilizando o acesso ao pod "meupod", redimeciondo a posta 80 pra 8080
-    kubectl port-forward pod/meupod 8080:80 
+    kubectl port-forward pod/meupod 8080:80
 
     #  pesquisando pode por labels
     kubectl get pods -l cor=azul
@@ -60,19 +60,36 @@ kubectl api-resources
 # -----------------------------------------------------------------------
 # -- Deployment
 
-# cria
-kubectl create -f .\deployment.yaml
-# -- cria e faz atualizações
-kubectl apply -f .\deployment.yaml
+    # cria
+    kubectl create -f .\deployment.yaml
+    # -- cria e faz atualizações
+    kubectl apply -f .\deployment.yaml
 
-# volta o deployment anterio do "meurdeployment"
-kubectl rollout undo deployment meurdeployment
+    # volta o deployment anterio do "meurdeployment"
+    kubectl rollout undo deployment meurdeployment
 
 # -----------------------------------------------------------------------
 # -- service
+
+# -- estrutura service NodePort, E COM nodePort: 30000 ESPECIFICANDO DE PORT
+    # apiVersion: v1
+    # kind: Service
+    # metadata:
+    # name: web-page
+    # spec:
+    # selector:
+    #     app: web
+    # ports:
+    #     - port: 80
+    #     protocol: TCP
+        # nodePort: 30000
+    # type: NodePort
+
 
 # lista
 kubectl get svc
 
  # diponibilizando o acesso ao service "web-page", redimeciondo a posta 80 pra 8080
 kubectl port-forward service/web-page 8080:80
+
+kubectl port-forward service/web-page 8080:80 --address='0.0.0.0'

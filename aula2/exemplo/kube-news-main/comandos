@@ -1,0 +1,15 @@
+
+-- image
+
+docker build -t abiliojgf/kube-news:v1 -f .\Dockerfile .
+
+docker tag abiliojgf/kube-news:v1 abiliojgf/kube-news:latest
+
+docker push abiliojgf/kube-news:v1
+docker push abiliojgf/kube-news:latest
+
+-- kubernetes
+
+kubectl apply -f .\deployment.yaml
+
+kubectl port-forward service/postgre 5432:5432
