@@ -1,0 +1,20 @@
+-- cluster
+k3d cluster create mycluster -p "80:30000@loadbalancer"
+-------------------------------------------------------------------------------------
+-- image
+
+docker build -t abiliojgf/conversao-temperatura:v2 -f .\Dockerfile .
+
+docker tag abiliojgf/conversao-temperatura:v2 abiliojgf/conversao-temperatura:latest
+
+docker push abiliojgf/conversao-temperatura:v2
+docker push abiliojgf/conversao-temperatura:latest
+
+-------------------------------------------------------------------------------------
+-- roda somente o container, sem o kubernetes, pra fin de test 
+docker container run -p 8081:8080 --name web-test abiliojgf/conversao-temperatura
+
+-------------------------------------------------------------------------------------
+-- fazer o deployment no kubernetes
+
+kubectl apply -f .\deployment.yaml

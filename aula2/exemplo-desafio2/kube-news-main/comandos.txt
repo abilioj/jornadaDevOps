@@ -1,3 +1,5 @@
+-- cluster
+k3d cluster create mycluster -p "80:30000@loadbalancer"
 
 -- image
 

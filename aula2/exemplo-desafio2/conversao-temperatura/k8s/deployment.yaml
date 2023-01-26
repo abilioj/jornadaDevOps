@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-conversao-temperatura
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web-conversao-temperatura
+  template:
+    metadata:
+      labels:
+        app: web-conversao-temperatura
+    spec:
+      containers:
+        - name: conversao-temperatura
+          image: abiliojgf/conversao-temperatura:v2
+          ports:
+          - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-conversao-temperatura
+spec:
+  selector:
+    app: web-conversao-temperatura
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 30000
+  type: NodePort
