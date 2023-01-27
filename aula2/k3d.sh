@@ -16,3 +16,16 @@ k3d cluster delete
 # -----------------------------------------------------------------------
 # cria o cluster com a bind port
 k3d cluster create mycluster -p "80:30000@loadbalancer"
+# -----------------------------------------------------------------------
+#Lista o nome do cluster, o usuário e o namespace
+kubectl config get-contexts 
+
+#Exibir endereços do plano de controle e serviços de cluster
+kubectl cluster-info
+
+#Exibir a versão k8s do cliente e do servidor
+kubectl version
+
+###Liste todos os nós criados no cluster
+kubectl get nodes
+
