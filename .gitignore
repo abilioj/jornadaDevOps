@@ -1,2 +1,2 @@
-./aula3/terraform/.terraform/
-./aula3/terraform/.terraform.lock.hcl
+aula3/terraform/.terraform/
+aula3/terraform/.terraform.lock.hcl
