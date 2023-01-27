@@ -1,0 +1,64 @@
+blocos inicia pra criação do ambiente na digitalocean
+
+terraform {
+  required_providers {
+    digitalocean = {
+      source = "digitalocean/digitalocean"
+      version = "~> 2.0"
+    }
+  }
+}
+# Configure the DigitalOcean Provider
+provider "digitalocean" {
+  token = ""
+}
+
+--------------------------------------------------------
+# Create a new Droplet in the nyc1 region
+resource "digitalocean_droplet" "jenkins" {
+  image  = "ubuntu-22-04-x64"
+  name   = "jenkins"
+  region = "nyc1"
+  size   = "s-1vcpu-1gb"
+}
+
+data "digitalocean_ssh_key" "jornada" {
+  name = "jornada"
+}
+---------------------------------------------------------
+# kubernetes-cluster
+resource "digitalocean_kubernetes_cluster" "k8s-jornada" {
+  name   = "k8s-jornada"
+  region = "nyc1"
+  # Grab the latest version slug from `doctl kubernetes options versions`
+  version = "1.25.4-do.0"
+
+  node_pool {
+    name       = "default"
+    size       = "s-2vcpu-2gb"
+    node_count = 2
+  }
+}
+-----------------------------------------------------------
+#variaveis
+
+variable "do_token" {
+  default = ""
+}
+
+variable "ssh_key_name" {
+  default =  "jornado"
+}
+
+variable "region" {
+  default =  "nyc1"
+}
+-----------------------------------------------------------
+#saida de infotmação
+
+#ip do Droplet
+output "jenkins_ip" {
+  value = digitalocean_droplet.jenkins.ipv4_address
+}
+
+#cofiguração de acessa do kubernetes cluster
