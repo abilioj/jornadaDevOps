@@ -62,3 +62,15 @@ output "jenkins_ip" {
 }
 
 #cofiguração de acessa do kubernetes cluster
+resource "local_file" "foo" {
+  content  = digitalocean_kubernetes_cluster.k8s-jornada.kube_config.0.raw_config
+  filename = "kube_config.yaml"
+}
+-----------------------------------------------------------
+#resevar ip
+
+resource "digitalocean_reserved_ip" "jenkins" {
+  droplet_id = digitalocean_droplet.jenkins.id
+  region     = digitalocean_droplet.jenkins.region
+}
+-----------------------------------------------------------

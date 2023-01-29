@@ -6,12 +6,12 @@
 - wsl( e ubuntu)
 - Docker
 - Terraform( pra instalar  aponta a pasta do binario para o path nas variaveis de ambiente)
-- chocolatey
-- kubenetes (kubectl)
-- k3d
-
+- Khocolatey
+- Kubenetes (kubectl)
+- K3D
 - DBeaver
-
+- Promethues
+- Grafana
 -----------------------------------------------------------------------------------------------
 <b> - palavra DEVOPS</b>
 DEV - de desenvolvemento

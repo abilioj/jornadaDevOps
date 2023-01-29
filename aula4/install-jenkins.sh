@@ -8,3 +8,9 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 
 sudo apt-get update
 sudo apt-get install jenkins
+
+sudo systemctl status jenkins
+sudo systemctl start jenkins
+sudo systemctl restart jenkins
+
+sudo ufw allow 8080
