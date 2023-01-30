@@ -1,0 +1,11 @@
+terraform
+https://developer.hashicorp.com/terraform/tutorials?product_intent=terraform
+
+terrform - google
+https://registry.terraform.io/providers/hashicorp/google/latest
+
+terrform - digitaocean
+https://registry.terraform.io/providers/digitalocean/digitalocean/latest
+
+terraform - aws
+https://registry.terraform.io/providers/hashicorp/aws/latest
