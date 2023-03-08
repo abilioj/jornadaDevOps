@@ -32,6 +32,7 @@ kubectl api-resources
     kubectl get pods
 
     # ver mais infomação do pod "meupod"
+    kubectl get pod -o wide
     kubectl describe pod meupod
 
     # diponibilizando o acesso ao pod "meupod", redimeciondo a posta 80 pra 8080
@@ -67,6 +68,9 @@ kubectl api-resources
 
     # volta o deployment anterio do "meurdeployment"
     kubectl rollout undo deployment meurdeployment
+
+    # scalona
+    kubectl scale deployment <name> --replicas=10
 
 # -----------------------------------------------------------------------
 # -- service
